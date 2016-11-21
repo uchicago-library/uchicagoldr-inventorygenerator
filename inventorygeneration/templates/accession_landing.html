@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-sm-8">
+        <h2>{{ collection_title }}</h2>
+        <h3>Special Collections Identifier: {{ spcl_id }}</h3>
+        <h3>Permanent Identifier: {{ ark_id }}</h3>
+        <p>{{ description }}</p>
+        <pre id="display-accessionrecord">
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <h3>Segments</h3>
+        <dl>
+            {% for segment in segment_list %}
+            <dt><a href="{{ segment.id }}-0.html">{{ segment.id }}</a></dt>
+            <dd>Contains {{ segment.numfiles }} {% if segment.numfiles == 1 %}file{% else %}files{%endif %}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+</div>
+{% endblock %}

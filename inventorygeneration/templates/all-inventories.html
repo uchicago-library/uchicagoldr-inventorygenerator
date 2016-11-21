@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <h3>LDR Inventory List</h3>
+        <ul class="list-group">
+            {% for inventory_item in inventories %}
+            <li class="list-item"><a href="{{ inventory_item }}/index.html">{{ inventory_item }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
