@@ -1,13 +1,28 @@
 {% extends "base.html" %} {% block content %}
 <div class="row">
     <div class="col-sm-8">
-        <h2>{{ collection_title }}</h2>
-        <h3>Special Collections Identifier: {{ spcl_id }}</h3>
-        <h3>Permanent Identifier: {{ ark_id }}</h3>
-        <p>{{ description }}</p>
-        <pre id="display-accessionrecord">
 
-        </div>
+	<h1>{{ accessionid }}</h1>
+        <p>{{ description }}</p>
+
+	<dl>
+	   {% for record in accessions %} 
+             <dt>{{ record }}</dt>
+	   {% endfor %}
+	</dl>
+
+	<dl>
+	   {% for note in adminnotes %}
+	     <dt>{{ note }}</dt>
+           {% endfor %}
+	</dl>
+
+	<dl>
+	   {% for legal in legalnotes %}
+	     <dt>{{ legal }}<dt>
+	   {% endfor %}
+	</dl>
+
     </div>
     <div class="col-sm-4">
         <h3>Segments</h3>
@@ -18,5 +33,6 @@
             {% endfor %}
         </dl>
     </div>
+
 </div>
 {% endblock %}
