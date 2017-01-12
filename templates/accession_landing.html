@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block content %}
+<div class="row">
+	<div class="col-sm-8">
+		<h1>Accession {{ arkid }}</h1>
+		<p>This is the inventory of this accession. An inventory includes the following:</p>
+		<ul>
+			<li>all files that were received by SPCL and PREMIS records that the LDR generated for those files</li>
+			<li>any accession records that might have been included with the accession</li>
+			<li>any legal notes that might have been included with the accession</li>
+			<li>any administratie notes that might have been included with the accession</li>
+		</ul>
+
+		{% if accessions %}
+		<dl>
+			{% for record in accessions %}
+			<dt>{{ record }}</dt>
+			{% endfor %}
+		</dl>
+		{% endif %} {% if adminnotes %}
+		<dl>
+			{% for note in adminnotes %}
+			<dt>{{ note }}</dt>
+			{% endfor %}
+		</dl>
+		{% endif %} {% if legalnotes %}
+		<dl>
+			{% for legal in legalnotes %}
+			<dt>{{ legal }}
+				<dt>
+					{% endfor %}
+		</dl>
+		{% endif %}
+	</div>
+	<div class="col-sm-4">
+		<h3>Segments</h3>
+		<dl>
+			{% for page in inventory_pages %}
+			<dt><a href="{{ page.number }}.html">{{ page.number }}</a></dt>
+			<dd>Contains {{ page.total_files }} {% if page.total_files == 1 %}file{% else %}files{%endif %}</dd>
+			{% endfor %}
+		</dl>
+	</div>
+</div>
+{% endblock %}

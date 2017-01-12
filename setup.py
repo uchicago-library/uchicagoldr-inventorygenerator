@@ -5,7 +5,7 @@ setup(
     version = '1.0.0',
     author = "Tyler Danstrom",
     author_email = ["tdanstriom@uchicago.edu"],
-    packages = ['ldrinventorycreator'],
+    packages = ['inventorygeneration'],
     description = "An application providing access to the contents of the ldr via restful requests",
     keywords = ["uchicago","repository","content retrieval"],
     classifiers = [
