@@ -10,19 +10,28 @@
 			<li>any administratie notes that might have been included with the accession</li>
 		</ul>
 
+	</div>
+	<div class="col-sm-4">
 		{% if accessions %}
+		<h3>Accession records</h3>
 		<dl>
 			{% for record in accessions %}
 			<dt>{{ record }}</dt>
 			{% endfor %}
 		</dl>
 		{% endif %} {% if adminnotes %}
+		<h3>Administrative notes</h3>
 		<dl>
 			{% for note in adminnotes %}
 			<dt>{{ note }}</dt>
 			{% endfor %}
 		</dl>
 		{% endif %} {% if legalnotes %}
+		<h3>Administrative notes</h3>
+		<dl>
+			{% for note in adminnotes %}
+			<dt>{{ note }}</dt>
+			{% endfor %}
 		<dl>
 			{% for legal in legalnotes %}
 			<dt>{{ legal }}
@@ -30,13 +39,12 @@
 					{% endfor %}
 		</dl>
 		{% endif %}
-	</div>
-	<div class="col-sm-4">
-		<h3>Segments</h3>
+
+		<h3>File inventory by page</h3>
 		<dl>
-			{% for page in inventory_pages %}
-			<dt><a href="{{ page.number }}.html">{{ page.number }}</a></dt>
-			<dd>Contains {{ page.total_files }} {% if page.total_files == 1 %}file{% else %}files{%endif %}</dd>
+			{% for page in pages %}
+			<dt><a href="{{ page[0] }}.html">{{ page[0] }}</a></dt>
+			<dd>Contains {{ page[1] }} {% if page.total_files == 1 %}file{% else %}files{%endif %}</dd>
 			{% endfor %}
 		</dl>
 	</div>
